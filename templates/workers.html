@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Status</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Distributed Worker Monitoring</h1>
+        <p>Monitor Assignment Processing Workers</p>
+    </header>
+
+    <main class="container">
+
+        <div class="cards">
+
+            {% for worker in workers %}
+
+            <div class="card">
+                <h3>{{ worker.worker }}</h3>
+
+                <p>Worker ID: {{ worker.worker }}</p>
+
+                <p>
+                    Status:
+                    <strong>{{ worker.status }}</strong>
+                </p>
+
+                <p>Port: {{ worker.port }}</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <br>
+
+        <a href="/">
+            <button type="button">Back to Dashboard</button>
+        </a>
+
+    </main>
+
+</body>
+</html>

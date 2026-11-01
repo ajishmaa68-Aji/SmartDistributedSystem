@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Status</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Assignment Status</h1>
+        <p>Track Your Assignment Processing</p>
+    </header>
+
+    <main class="container">
+
+        <div class="card">
+            <h3>Your Assignment Status</h3>
+
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>File Name</th>
+                    <th>Status</th>
+                </tr>
+
+                {% for assignment in assignments %}
+                <tr>
+                    <td>{{ assignment[0] }}</td>
+                    <td>{{ assignment[1] }}</td>
+                    <td>{{ assignment[2] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <br>
+
+            <a href="/">
+                <button type="button">Back to Dashboard</button>
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
